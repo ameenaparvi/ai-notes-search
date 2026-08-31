@@ -35,17 +35,14 @@ def home():
 @app.post("/search")
 def search(data: Question):
 
-    # Convert user's question into an embedding
-    question_embedding = model.encode(
-        data.question,
-        convert_to_tensor=True
-    )
+    # Convert question into TF-IDF vector
+    question_vector = vectorizer.transform([data.question])
 
     # Compare question with all notes
-    scores = util.cos_sim(question_embedding, embeddings)[0]
+    scores = cosine_similarity(question_vector, embeddings)[0]
 
-    # Find the most similar note
-    best_index = scores.argmax().item()
+    # Find most similar note
+    best_index = scores.argmax()
 
     return {
         "question": data.question,
