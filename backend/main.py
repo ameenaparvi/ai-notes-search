@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
-from sentence_transformers import SentenceTransformer, util
-
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 app = FastAPI()
 
 # Allow React frontend to communicate with FastAPI
@@ -17,15 +17,10 @@ app.add_middleware(
 
 # Load notes
 df = pd.read_csv("data/cleaned_notes.csv")
-
+vectorizer = TfidfVectorizer()
+embeddings = vectorizer.fit_transform(df["cleaned_text"])
 # Load embedding model
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
-# Create embeddings for our notes
-embeddings = model.encode(
-    df["cleaned_text"].tolist(),
-    convert_to_tensor=True
-)
 
 
 class Question(BaseModel):
