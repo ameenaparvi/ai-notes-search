@@ -1,0 +1,11 @@
+id,text,cleaned_text
+1,Deadlock occurs when processes wait indefinitely for resources.,deadlock occurs when processes wait indefinitely for resources
+2,TCP provides reliable and ordered communication between devices.,tcp provides reliable and ordered communication between devices
+3,Normalization reduces redundancy in relational databases.,normalization reduces redundancy in relational databases
+4,A semaphore is used for process synchronization.,a semaphore is used for process synchronization
+5,Dijkstra's algorithm finds shortest paths in a weighted graph.,dijkstras algorithm finds shortest paths in a weighted graph
+6,A primary key uniquely identifies each record in a database.,a primary key uniquely identifies each record in a database
+7,Machine learning allows computers to learn patterns from data.,machine learning allows computers to learn patterns from data
+8,An API allows different software applications to communicate.,an api allows different software applications to communicate
+9,MongoDB is a NoSQL database that stores data as documents.,mongodb is a nosql database that stores data as documents
+10,React is a JavaScript library used to build user interfaces.,react is a javascript library used to build user interfaces
